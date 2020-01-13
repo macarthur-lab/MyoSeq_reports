@@ -10,7 +10,7 @@ This series of scripts prepares PDF reports for the MyoSeq group led by Volker S
  4. Install samtools, bgzip, Anaconda (Python3.7), and their necessary dependencies on your VM instance. See [samtools documentation](http://www.htslib.org/download/) and [Anaconda](https://www.anaconda.com/distribution/).
  5. Clone this repo or copy the scripts in the `coverage` folder to the VM.
  6. Ensure the Google service account associated with the VM or a personal Gmail has access to the crams. To login on the VM with a personal Gmail, use `gcloud auth login`.
- 7. Install (hail)[https://hail.is/docs/0.2/getting_started.html] locally.
+ 7. Install [hail](https://hail.is/docs/0.2/getting_started.html) locally.
  8. Clone the gnomAD hail utilities [repo](https://github.com/macarthur-lab/gnomad_hail). Set `HAIL_SCRIPTS` (in `~/.bashrc`) equal to the path to the gnomAD hail repo for imports to work properly.
 
 ## Directory set up
@@ -22,6 +22,9 @@ reports/
     per_sample/
     pdf/
     summary/ (create this only if samples have SMA or CNV results)
+    images/ (create this only if samples have SMA or CNV results)
+        cnv/
+        sma/
 ```
 
 ## Part 1: Preparation
@@ -34,7 +37,8 @@ reports/
  7. Copy all TSVs downloaded from _seqr_ to Google bucket.
  8. Download pedigree for samples from _seqr_ (in the project(s) of interest, click "Download Table", then ".tsv" under "Individuals") and remove quotations from downloaded files.
  9. Locate all cram files for samples of interest and copy them to the Google bucket.
- 10. Install [pdflatex](https://www.tug.org/applications/pdftex/).
+ 10. Install (pdflatex)[https://www.tug.org/applications/pdftex/].
+ 11. Copy PDFs for CNV and SMA results to `images/` if applicable. Copy CNV results (five column tsv; chromosome, start, stop, copy number, gene) for each sample to `summary/`. Name these files `{sample}_CNV.tsv`.
 
 ## Part 2: Coverage
 The scripts necessary for part 1 are in the `coverage` folder. This step requires access to the sample cram files. All scripts in this section are run on the Google VM created above.
