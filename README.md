@@ -37,7 +37,7 @@ reports/
  7. Copy all TSVs downloaded from _seqr_ to Google bucket.
  8. Download pedigree for samples from _seqr_ (in the project(s) of interest, click "Download Table", then ".tsv" under "Individuals") and remove quotations from downloaded files.
  9. Locate all cram files for samples of interest and copy them to the Google bucket.
- 10. Install (pdflatex)[https://www.tug.org/applications/pdftex/].
+ 10. Install [pdflatex](https://www.tug.org/applications/pdftex/).
  11. Copy PDFs for CNV and SMA results to `images/` if applicable. Copy CNV results (five column tsv; chromosome, start, stop, copy number, gene) for each sample to `summary/`. Name these files `{sample}_CNV.tsv`.
 
 ## Part 2: Coverage
