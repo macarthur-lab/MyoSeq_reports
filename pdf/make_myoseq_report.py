@@ -231,10 +231,13 @@ def get_variants(line: dict, report: bool, comment_index: int) -> str:
         
         if color != '':
             for i in range(len(clinsig)):
-                variant_info += '\\textcolor{' + f'{color}' + '}{\\textbf{' + f'{clinsig[i]}' + '}} & ' + f'{comment_foot} {LINE_BREAK}\n'
+                if i == 0:
+                    variant_info += '\\textcolor{' + f'{color}' + '}{\\textbf{' + f'{clinsig[i]}' + '}} & ' + f'{comment_foot} {LINE_BREAK}\n'
+                else:
+                    variant_info += '& & & \\textcolor{' + f'{color}' + '}{\\textbf{' + f'{clinsig[i]}' + '}} & ' + f'{comment_foot} {LINE_BREAK}\n'
         else:
             for i in range(len(clinsig)):
-                variant_info += '{\\textbf{' + f'{clinsig[i]}' + '}} & ' + f'{comment_foot} {LINE_BREAK}\n'
+                variant_info += '& & & {\\textbf{' + f'{clinsig[i]}' + '}} & ' + f'{comment_foot} {LINE_BREAK}\n'
 
     # color variant's hgvsc red if it is a splice variant; otherwise display in black
     if function == 'splice_donor_variant' or function == 'slice_acceptor_variant':
