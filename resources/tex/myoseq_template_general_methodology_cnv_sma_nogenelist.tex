@@ -7,7 +7,7 @@ We performed whole exome sequencing on DNA samples at the Broad Institute's Geno
 {\large \textbf{\textit{Variant Calling, Filtering and Annotation}}}
 \\
 Exome sequencing data was processed through a pipeline based on \textit{Picard}, using base quality score recalibration and local 
-realignment at known indels. We used the \textit{BWA} aligner for mapping reads to the human genome build 37 (hg19). Single Nucleotide Polymorphism (SNPs) 
+realignment at known indels. We used the \textit{BWA} aligner for mapping reads to the human genome build 38 (hg38). Single Nucleotide Polymorphism (SNPs) 
 and insertions/deletions (indels) were jointly called across all samples using \textit{Genome Analysis Toolkit (GATK)} HaplotypeCaller package version 3.1. 
 Default filters were applied to SNP and indel calls using the GATK Variant Quality Score Recalibration (VQSR) approach. 
 Lastly, the variants were annotated using \textit{Variant Effect Predictor (VEP)}.
