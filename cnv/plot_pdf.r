@@ -28,7 +28,7 @@ affected <- melt(subset(cnv, select=names(cnv) %in% c(std_columns,affected_sampl
 
 melted_all <- melt(cnv,id=std_columns)
 plot.title = sprintf("%s", gene)
-file.out = sprintf("%s_%s.pdf", gene, sample_id)
+file.out = sprintf("%s.pdf", sample_id)
 
 q <- ggplot(melted_all,aes(x=start/1000,y=exp(value))) + geom_line(aes(group = variable),color="lightgrey")
 q <- q + geom_line(data=affected,aes(x=start/1000,y=exp(value),group = variable),color="blue")
